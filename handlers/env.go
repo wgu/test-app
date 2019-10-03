@@ -5,12 +5,14 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 )
 
 type Env struct {
 }
 
 func (p *Env) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	time.Sleep(10 * time.Second)
 	formatJson := r.URL.Query().Get("json")
 	if formatJson == "" {
 		out := "<dl>"
